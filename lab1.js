@@ -17,8 +17,8 @@ console.log(calculateBMI(55, 1.70));
 
 
 function createBook(title, author, year, price) {
-
-  const discountMethod = "calculateDiscount"; 
+  const discountPercentKey = "discountPercent";
+  const formatPrice = (value) => value.toLocaleString("vi-VN"); 
 
   return {
     title,
@@ -26,14 +26,16 @@ function createBook(title, author, year, price) {
     year,
     price,
 
+    [discountPercentKey]: 0,
+
     getBookInfo() {
-      return `Sách: ${this.title} - Tác giả: ${this.author} (${this.year}) - Giá: ${this.price.toLocaleString()} VND`;
+      return `📘 "${this.title}" của ${this.author} (${this.year}) — Giá: ${formatPrice(this.price)} VND`;
     },
 
-    [discountMethod](discount) {
-      const newPrice = this.price * (1 - discount / 100);
-      return `Giá sau khi giảm ${discount}%: ${newPrice.toLocaleString()} VND`;
-    }
+    calculateDiscount: (discount) => {
+      const newPrice = price * (1 - discount / 100);
+      return `💰 Giá sau khi giảm ${discount}% là: ${formatPrice(newPrice)} VND`;
+    },
   };
 }
 
@@ -41,4 +43,4 @@ const book = createBook("JavaScript ES6", "John Doe", 2023, 200000);
 
 console.log(book.getBookInfo());
 
-console.log(book.calculateDiscount(10));
+console.log(book.calculateDiscount(15));
