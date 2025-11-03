@@ -34,7 +34,7 @@ function createBook(title, author, year, price) {
 
     calculateDiscount: (discount) => {
       const newPrice = price * (1 - discount / 100);
-      return `💰 Giá sau khi giảm ${discount}% là: ${formatPrice(newPrice)} VND`;
+      return `💰 Giá sau khi giảm ${discount}% là: ${formatPrice(newPrice)} VNDgggg`;
     },
   };
 }
