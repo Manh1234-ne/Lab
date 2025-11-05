@@ -64,9 +64,9 @@ const product = {
 const finalPrice = product.price * (1 - product.discount / 100);
 
 const productCard = `Tên sp: ${product.name}, 
-Giá ${product.price.toLocaleString()}, 
+Giá ${product.price.toLocaleString()} VNĐ, 
 Giảm giá ${product.discount}%, 
-Giá sau giảm ${finalPrice.toLocaleString()}, 
+Giá sau giảm ${finalPrice.toLocaleString()} VNĐ, 
 Tình trạng ${product.inStock ? "Còn" : "Hết"}`; // Viết template ở đây
 
 console.log(productCard);
