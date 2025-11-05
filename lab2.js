@@ -70,3 +70,25 @@ Giá sau giảm ${finalPrice.toLocaleString()} VNĐ,
 Tình trạng ${product.inStock ? "Còn" : "Hết"}`; // Viết template ở đây
 
 console.log(productCard);
+
+
+
+
+// Enhanced Object Literals
+// Bài 1: Sử dụng property và method shorthand
+// Viết lại object sau sử dụng ES6 enhanced object literals
+const width = 100;
+const height = 200;
+const color = "red";
+
+const rectangle = {
+  width: width,
+  height: height,
+  color: color,
+  calculateArea: function () {
+    return this.width * this.height;
+  },
+  describe: function () {
+    return `Rectangle ${this.width}x${this.height}, color: ${this.color}`;
+  },
+};
