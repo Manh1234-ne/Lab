@@ -28,6 +28,9 @@ const student = {
   name: "ThuyTien",
   age: 20,
 };
+student.grade = "A";
+student.age = 21;
+console.log(student);
 
 // Thực hiện các thao tác sau:
 // 1. Thêm thuộc tính grade với giá trị "A"
