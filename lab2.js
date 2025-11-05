@@ -11,7 +11,6 @@
 
 
 // Bài 1: Sửa lỗi scope 
-// Sửa đoạn code sau để hoạt động đúng
 for (let i = 0; i < 3; i++) {
   setTimeout(function () {
     console.log(i); // Đã in ra 0,1,2
@@ -22,8 +21,6 @@ for (let i = 0; i < 3; i++) {
 
 
 // Bài 2: Sử dụng const đúng cách
-// Tạo một object student với const
-// Thêm thuộc tính điểm và in ra
 const student = {
   name: "ThuyTien",
   age: 20,
@@ -36,3 +33,40 @@ console.log(student);
 // 1. Thêm thuộc tính grade với giá trị "A"
 // 2. Thay đổi tuổi thành 21
 // 3. In ra toàn bộ thông tin student
+
+
+
+// Template literals
+// Bài 1: Tạo email template
+const user = {
+  firstName: "Nguyen",
+  lastName: "Van A",
+  product: "Laptop Dell XPS",
+  price: 25000000,
+  orderDate: "2024-01-15",
+};
+
+const emailTemplate = `Xin chào bạn ${user.firstName} ${user.lastName}, 
+có đơn hàng ${user.product}, 
+đơn hàng có giá ${user.price} VNĐ, 
+được đặt vào ngày ${user.orderDate}`; // Viết template ở đây
+ 
+console.log(emailTemplate);
+
+//Bài 2: Tạo HTML template
+const product = {
+  name: "iPhone 15",
+  price: 20000000,
+  discount: 10,
+  inStock: true,
+};
+
+const finalPrice = product.price * (1 - product.discount / 100);
+
+const productCard = `Tên sp: ${product.name}, 
+Giá ${product.price.toLocaleString()}, 
+Giảm giá ${product.discount}%, 
+Giá sau giảm ${finalPrice.toLocaleString()}, 
+Tình trạng ${product.inStock ? "Còn" : "Hết"}`; // Viết template ở đây
+
+console.log(productCard);
