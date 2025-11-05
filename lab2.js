@@ -82,13 +82,44 @@ const height = 200;
 const color = "red";
 
 const rectangle = {
-  width: width,
-  height: height,
-  color: color,
-  calculateArea: function () {
+  width,
+  height,
+  color,
+  calculateArea() {
     return this.width * this.height;
   },
-  describe: function () {
+  describe() {
     return `Rectangle ${this.width}x${this.height}, color: ${this.color}`;
   },
 };
+
+console.log(rectangle.calculateArea());
+console.log(rectangle.describe());
+
+
+// Bài 2: Sử dụng computed properties
+const env = "production";
+const version = "v2";
+const features = ["auth", "payment", "notification"];
+
+const config = {
+  [`api_${env}_${version}`]: "https://api.example.com/v2",
+  ...features.reduce((acc, feature) => {
+    acc[`feature_${feature}`] = true;
+    return acc;
+  }, {}),
+  [`get${env.charAt(0).toUpperCase() + env.slice(1)}Config`]() {
+    return this[`api_${env}_${version}`];
+  },
+};
+
+console.log(config);
+// {
+//   api_production_v2: 'https://api.example.com/v2',
+//   feature_auth: true,
+//   feature_payment: true,
+//   feature_notification: true,
+//   getProductionConfig: [Function]
+// }
+
+console.log(config.getProductionConfig()); // "https://api.example.com/v2"
