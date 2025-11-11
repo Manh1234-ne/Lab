@@ -61,3 +61,46 @@ function createProduct({ name, price, category = "general", inStock = true }) {
 const product = createProduct({ name: "Laptop", price: 15000000 });
 console.log(product);
 // { name: 'Laptop', price: 999, category: 'general', inStock: true }
+
+
+// Promises
+// Bài tập Promises
+// Bài 1: Viết hàm delay trả về Promise
+function delay(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}
+
+delay(2000).then(() => console.log("2 seconds passed"));
+
+
+
+// Bài 2: Viết hàm fetchMultipleData
+async function fetchMultipleData(urls) {
+  // Tạo mảng các Promise từ fetch
+  const promises = urls.map(async (url) => {
+    const res = await fetch(url);
+    return res.json();
+  });
+
+  // Chờ tất cả Promise hoàn thành
+  const results = await Promise.all(promises);
+  return results;
+}
+
+// Gọi hàm với mock API
+(async () => {
+  const users = await fetchMultipleData([
+    "https://jsonplaceholder.typicode.com/users/1",
+    "https://jsonplaceholder.typicode.com/users/2"
+  ]);
+  console.log(users);
+})();
+
+
+// Gọi hàm
+(async () => {
+  const users = await fetchMultipleData(["/api/user/1", "/api/user/2"]);
+  console.log(users);
+})();
