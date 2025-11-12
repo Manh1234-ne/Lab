@@ -7,9 +7,9 @@
 // Bài tập Array Destructuring
 // Bài 1: Viết hàm trả về phần tử đầu tiên và cuối cùng của mảng
 function getFirstLast(array) {
-if (array.length === 0) return []; 
-  const [first, ...rest] = array; 
-  const last = rest[rest.length - 1]; 
+  if (array.length === 0) return [];
+  const [first, ...rest] = array;
+  const last = rest[rest.length - 1];
   return [first, last];
 }
 console.log(getFirstLast([1, 2, 3, 4])); // [1, 4]
@@ -18,8 +18,8 @@ console.log(getFirstLast([1, 2, 3, 4])); // [1, 4]
 // Bài 2: Hoán đổi vị trí phần tử thứ 2 và thứ 4 trong mảng
 function swapElements(arr) {
   const result = [...arr];
-    [result[1], result[3]] = [result[3], result[1]];
-    return result;
+  [result[1], result[3]] = [result[3], result[1]];
+  return result;
 }
 
 console.log(swapElements([1, 2, 3, 4, 5])); // [1, 4, 3, 2, 5]
@@ -41,10 +41,10 @@ const user = {
 };
 
 function getUserInfo(user) {
-    const {
-        personalInfo: {name, contact:{email}},
-    } = user;
-    return {name, email};
+  const {
+    personalInfo: { name, contact: { email } },
+  } = user;
+  return { name, email };
 }
 
 console.log(getUserInfo(user));
@@ -76,31 +76,56 @@ delay(2000).then(() => console.log("2 seconds passed"));
 
 
 
-// Bài 2: Viết hàm fetchMultipleData
-async function fetchMultipleData(urls) {
-  // Tạo mảng các Promise từ fetch
-  const promises = urls.map(async (url) => {
-    const res = await fetch(url);
-    return res.json();
-  });
+// // Bài 2: Viết hàm fetchMultipleData
+// async function fetchMultipleData(urls) {
+//   // Tạo mảng các Promise từ fetch
+//   const promises = urls.map(async (url) => {
+//     const res = await fetch(url);
+//     return res.json();
+//   });
 
-  // Chờ tất cả Promise hoàn thành
-  const results = await Promise.all(promises);
-  return results;
+//   // Chờ tất cả Promise hoàn thành
+//   const results = await Promise.all(promises);
+//   return results;
+// }
+
+// // Gọi hàm với mock API
+// (async () => {
+//   const users = await fetchMultipleData([
+//     "https://jsonplaceholder.typicode.com/users/1",
+//     "https://jsonplaceholder.typicode.com/users/2"
+//   ]);
+//   console.log(users);
+// })();
+
+
+// // Gọi hàm
+// (async () => {
+//   const users = await fetchMultipleData(["/api/user/1", "/api/user/2"]);
+//   console.log(users);
+// })();
+
+
+
+// Bài tập Async/Await
+// Bài 1: Viết lại callback hell thành async/await
+async function processOrder(orderId) {
+  try {
+    const order = await getOrder(orderId);
+    const user = await getUser(order.userId);
+    const products = await getProducts(order.productIds);
+
+    return { order, user, products };
+  } catch (error) {
+    console.error('Error processing order:', error);
+    throw error;
+  }
 }
-
-// Gọi hàm với mock API
 (async () => {
-  const users = await fetchMultipleData([
-    "https://jsonplaceholder.typicode.com/users/1",
-    "https://jsonplaceholder.typicode.com/users/2"
-  ]);
-  console.log(users);
-})();
-
-
-// Gọi hàm
-(async () => {
-  const users = await fetchMultipleData(["/api/user/1", "/api/user/2"]);
-  console.log(users);
+  try {
+    const result = await processOrder(123);
+    console.log(result);
+  } catch (err) {
+    console.error('Failed to process order:', err.message);
+  }
 })();
