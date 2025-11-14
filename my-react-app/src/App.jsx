@@ -22,7 +22,7 @@ function App() {
   ]
 
   return (
-    <div className="min-h-screen flex flex-col justify-center p-4 gap-4">
+    <div className="min-h-screen flex flex-col justify-between p-4 gap-4">
       <Header />
       <hr />
       <h1 className="uppercase text-center text-2xl font-semibold text-pink-500">Kham pha san pham viettravel</h1>
