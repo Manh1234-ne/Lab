@@ -1,3 +1,7 @@
+import Footer from './components/Footer'
+import Header from './components/Header'
+
+
 function App() {
   const tours = [
     {
@@ -18,8 +22,10 @@ function App() {
   ]
 
   return (
-    <div className="">
-      <h1 className="uppercase text-center text-2xl font-semibold">Kham pha san pham viettravel</h1>
+    <div className="min-h-screen flex flex-col justify-center p-4 gap-4">
+      <Header />
+      <hr />
+      <h1 className="uppercase text-center text-2xl font-semibold text-pink-500">Kham pha san pham viettravel</h1>
       <p className="text-md font-medium text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore nulla autem repellat dolorum quibusdam possimus officia esse, officiis modi itaque reprehenderit tempora nostrum quam molestias expedita ipsam perferendis ipsum vero.</p>
       <div className="flex gap-2 my-4">
         {tours.map(tour => (
@@ -43,7 +49,7 @@ function App() {
 
 
       </div>
-
+          <Footer />
     </div>
   )
 }
