@@ -1,13 +1,50 @@
 function App() {
-  const name = "Nguyen Van B"
-  const age = 19
+  const tours = [
+    {
+      id: 1,
+      title: "Khu nghỉ dưỡng",
+      image: "https://trave.com.vn/wp-content/uploads/2025/05/Cac-Loai-Tour-Thuong-Co-Gia-Hop-Ly.webp"
+    },
+    {
+      id: 2,
+      title: "Phố Cổ Hội An",
+      image: "https://trave.com.vn/wp-content/uploads/2025/05/Pho-Co-Hoi-An-Net-Dep-Hoai-Co-va-Lang-Man.webp"
+    },
+    {
+      id: 3,
+      title: "Du lịch biển",
+      image: "https://trave.com.vn/wp-content/uploads/2025/05/Luu-Y-Khi-Du-Lich-Bien-Dao-An-Toan.webp"
+    }
+  ]
 
   return (
-    <>
-      <h1 className="text-4xl font-bold text-amber-300" >hello {name}</h1>
-      <p>Tuổi: {age + 1} </p>
-      <p>Là học viên: {true ? "Có" : "Không"}</p>
-    </>
+    <div className="">
+      <h1 className="uppercase text-center text-2xl font-semibold">Kham pha san pham viettravel</h1>
+      <p className="text-md font-medium text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore nulla autem repellat dolorum quibusdam possimus officia esse, officiis modi itaque reprehenderit tempora nostrum quam molestias expedita ipsam perferendis ipsum vero.</p>
+      <div className="flex gap-2 my-4">
+        {tours.map(tour => (
+          <div key={tour.id}>
+            <img src={tour.image} alt={tour.title} width={500} />
+            <h3 className="font-semibold">{tour.title}</h3>
+          </div>
+        ))}
+        {/* <div>
+          <img src={tours[0].image} alt={tours[0].title} width={500} />
+          <h3 className="font-semibold">{tours[0].title}</h3>
+        </div>
+        <div>
+          <img src={tours[1].image} alt={tours[1].title} width={500} />
+          <h3 className="font-semibold">{tours[1].title}</h3>
+        </div>
+        <div>
+          <img src={tours[2].image} alt={tours[2].title} width={500} />
+          <h3 className="font-semibold">{tours[2].title}</h3>
+        </div> */}
+
+
+      </div>
+
+    </div>
   )
 }
 
