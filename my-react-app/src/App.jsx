@@ -1,6 +1,5 @@
-import Footer from './components/Footer'
-import Header from './components/Header'
-
+import Header from "./components/Header"
+import Footer from "./components/Footer"
 
 function App() {
   const tours = [
@@ -22,34 +21,37 @@ function App() {
   ]
 
   return (
-    <div className="min-h-screen flex flex-col justify-between p-4 gap-4">
+    <div className="min-h-screen flex flex-col bg-gray-50">
       <Header />
-      <hr />
-      <h1 className="uppercase text-center text-2xl font-semibold text-pink-500">Kham pha san pham viettravel</h1>
-      <p className="text-md font-medium text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore nulla autem repellat dolorum quibusdam possimus officia esse, officiis modi itaque reprehenderit tempora nostrum quam molestias expedita ipsam perferendis ipsum vero.</p>
-      <div className="flex gap-2 my-4">
-        {tours.map(tour => (
-          <div key={tour.id}>
-            <img src={tour.image} alt={tour.title} width={500} />
-            <h3 className="font-semibold">{tour.title}</h3>
-          </div>
-        ))}
-        {/* <div>
-          <img src={tours[0].image} alt={tours[0].title} width={500} />
-          <h3 className="font-semibold">{tours[0].title}</h3>
-        </div>
-        <div>
-          <img src={tours[1].image} alt={tours[1].title} width={500} />
-          <h3 className="font-semibold">{tours[1].title}</h3>
-        </div>
-        <div>
-          <img src={tours[2].image} alt={tours[2].title} width={500} />
-          <h3 className="font-semibold">{tours[2].title}</h3>
-        </div> */}
 
+      <div className="w-full max-w-6xl mx-auto p-6">
+        <h1 className="text-center text-2xl font-bold text-pink-500 tracking-wide mb-3">
+          KHÁM PHÁ SẢN PHẨM VIETTRAVEL
+        </h1>
 
+        <p className="text-center text-gray-700 mb-10 max-w-3xl mx-auto">
+          Viettravel mang đến những hành trình tuyệt vời, nơi mỗi chuyến đi không chỉ là khám phá
+          mà còn là trải nghiệm văn hóa, ẩm thực và phong cảnh đặc sắc. Hãy cùng chúng tôi tạo nên
+          những kỷ niệm đáng nhớ trên từng cung đường.
+        </p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {tours.map(tour => (
+            <div key={tour.id} className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-xl transition">
+              <img
+                src={tour.image}
+                alt={tour.title}
+                className="w-full h-56 object-cover"
+              />
+              <div className="p-3">
+                <h3 className="text-lg font-semibold text-gray-800">{tour.title}</h3>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-          <Footer />
+
+      <Footer />
     </div>
   )
 }

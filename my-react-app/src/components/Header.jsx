@@ -1,14 +1,17 @@
 function Header() {
-    return(
-        <nav className="my-2">
-            <ul className="flex items-center justify-around font-semibold">
-                <li><a href="">Home</a></li>
-                <li><a href="">About</a></li>
-                <li><a href="">Booking</a></li>
-                <li><a href="">Contact</a></li>
-            </ul>
+  return (
+    <header className="w-full bg-white shadow">
+      <div className="max-w-6xl mx-auto flex justify-between items-center p-4">
+        <h2 className="text-xl font-bold text-gray-700">🏡 Home</h2>
+
+        <nav className="flex gap-6 text-gray-700 font-medium">
+          <a href="#" className="hover:text-blue-600">📄 Tours</a>
+          <a href="#" className="hover:text-blue-600">📘 Destinations</a>
+          <a href="#" className="hover:text-blue-600">📒 Bookings</a>
         </nav>
-    );
+      </div>
+    </header>
+  )
 }
 
-export default Header;
+export default Header
