@@ -38,11 +38,7 @@ function App() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {tours.map(tour => (
             <div key={tour.id} className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-xl transition">
-              <img
-                src={tour.image}
-                alt={tour.title}
-                className="w-full h-56 object-cover"
-              />
+              <img src={tour.image} alt={tour.title} className="w-full h-56 object-cover"/>
               <div className="p-3">
                 <h3 className="text-lg font-semibold text-gray-800">{tour.title}</h3>
               </div>
