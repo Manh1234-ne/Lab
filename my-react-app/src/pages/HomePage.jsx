@@ -2,8 +2,11 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import TourCard from "../components/TourCard";
 import Heading from "../components/Heading";
+import { useState } from "react";
 
 function HomePage() {
+  // const [tours, setTours] = useState([]);
+  // const handleLoadData = () => {};
   const tours = [
     {
       id: 1,
@@ -28,7 +31,7 @@ function HomePage() {
   return (
     <div className="min-h-screen flex flex-col bg-gray-100">
       <Header />
-
+      {/* <Button label="Load data" onClick={handleLoadData} />  */}
       <main className="px-4 md:px-10">
         <div className="text-center my-12">
           <Heading label="Khám phá sản phẩm 404 Error Travel" />
@@ -46,7 +49,6 @@ function HomePage() {
           ))}
         </div>
       </main>
-
       <Footer />
     </div>
   );

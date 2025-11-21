@@ -1,14 +1,11 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-
 export default function About() {
   return (
     <div>
       <Header />
-
       <div className="p-10 text-center">
         <h1 className="text-2xl font-bold text-blue-600">Giới thiệu 404 Error Travel</h1>
-
         <img
           src="https://th.bing.com/th/id/OIP.e0FQGDyyADClmPx9WHaApAHaEK?w=333&h=187&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3"
           alt="VietTravel"
@@ -25,5 +22,5 @@ export default function About() {
 
       <Footer />
     </div>
-  );
+  )
 }
