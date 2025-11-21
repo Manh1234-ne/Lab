@@ -30,7 +30,6 @@ function HomePage() {
       <Header />
 
       <main className="px-4 md:px-10">
-        {/* Section tiêu đề */}
         <div className="text-center my-12">
           <Heading label="Khám phá sản phẩm VietTravel" />
 
@@ -41,7 +40,6 @@ function HomePage() {
           </p>
         </div>
 
-        {/* Section danh sách tour */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 pb-16">
           {tours.map((tour) => (
             <TourCard key={tour.id} title={tour.title} image={tour.image} />

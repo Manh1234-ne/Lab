@@ -5,7 +5,7 @@ export default function Heading({ label }) {
 
       {label}
 
-      <span className="absolute left-0 bottom-[-6px] w-full h-[4px] bg-blue-500 rounded-full"></span>
+      <span className="absolute left-0 -bottom-1.5 w-full h-1 bg-blue-500 rounded-full"></span>
     </h2>
   );
 }

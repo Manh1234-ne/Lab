@@ -41,14 +41,12 @@ export default function TourListPage() {
           Danh sách Tour
         </h1>
 
-        {/* Bộ lọc */}
         <div className="mb-6 flex gap-4 flex-wrap">
           <button className="px-4 py-2 bg-white rounded-xl border shadow-sm">Đà Lạt</button>
           <button className="px-4 py-2 bg-white rounded-xl border shadow-sm">Phú Quốc</button>
           <button className="px-4 py-2 bg-white rounded-xl border shadow-sm">Hạ Long</button>
         </div>
 
-        {/* Search */}
         <div className="mb-8">
           <input
             type="text"
@@ -57,7 +55,6 @@ export default function TourListPage() {
           />
         </div>
 
-        {/* GRID GIỐNG HOMEPAGE */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {tours.map((tour) => (
             <div key={tour.id} className="bg-white rounded-xl shadow p-4">
@@ -69,13 +66,13 @@ export default function TourListPage() {
 
               <div className="mt-4">
                 <h3 className="font-semibold text-lg">{tour.title}</h3>
-                <p className="text-gray-600">📍 {tour.location}</p>
-                <p className="text-gray-600">⏱ {tour.days}</p>
-                <p className="text-red-600 font-bold mt-2">💰 {tour.price}</p>
+                <p className="text-gray-600">{tour.location}</p>
+                <p className="text-gray-600">{tour.days}</p>
+                <p className="text-red-600 font-bold mt-2">{tour.price}</p>
               </div>
 
               <button className="mt-4 w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-                View Details
+                Xem Chi Tiết
               </button>
             </div>
           ))}

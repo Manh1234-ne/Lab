@@ -10,7 +10,7 @@ export default function TourCard({ title, image }) {
           className="w-full h-64 object-cover group-hover:scale-110 transition duration-500"
         />
 
-        <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-3">
+        <div className="absolute bottom-0 left-0 w-full bg-linear-to-t from-black/70 to-transparent p-3">
           <h3 className="text-white font-semibold text-lg drop-shadow">
             {title}
           </h3>
