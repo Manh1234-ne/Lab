@@ -31,10 +31,10 @@ function HomePage() {
 
       <main className="px-4 md:px-10">
         <div className="text-center my-12">
-          <Heading label="Khám phá sản phẩm VietTravel" />
+          <Heading label="Khám phá sản phẩm 404 Error Travel" />
 
           <p className="text-gray-700 mt-4 max-w-3xl mx-auto text-base leading-relaxed">
-            VietTravel mang đến những hành trình tuyệt vời, nơi mỗi chuyến đi không chỉ là khám phá
+            404 Error Travel mang đến những hành trình tuyệt vời, nơi mỗi chuyến đi không chỉ là khám phá
             mà còn là trải nghiệm văn hóa, ẩm thực và phong cảnh đặc sắc. Hãy cùng chúng tôi tạo nên
             những kỷ niệm đáng nhớ trên từng cung đường.
           </p>
