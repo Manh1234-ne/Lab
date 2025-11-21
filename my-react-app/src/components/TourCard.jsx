@@ -1,21 +1,26 @@
-// Tham so props
-// title: tieu de tour
-
 import Button from "./Button";
 
+export default function TourCard({ title, image }) {
+  return (
+    <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition overflow-hidden group">
+      <div className="relative overflow-hidden">
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-64 object-cover group-hover:scale-110 transition duration-500"
+        />
 
-// image: hinh anh tour
-function TourCard(props) {
-    return (<div>
-        <img src={props.image} alt={props.title} width={500} />
-        <h3 className="font-semibold">{props.title}</h3>
-        <div className="flex justify-around">
-            <Button label="Xem them"></Button>
-            <Button label="Dat tour"></Button>
-            {/* <Button /> */}
+        <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-3">
+          <h3 className="text-white font-semibold text-lg drop-shadow">
+            {title}
+          </h3>
         </div>
-    </div>
-    );
-}
+      </div>
 
-export default TourCard;
+      <div className="flex justify-between px-4 py-4">
+        <Button label="Xem Thêm" />
+        <Button label="Đặt Tour" />
+      </div>
+    </div>
+  );
+}
