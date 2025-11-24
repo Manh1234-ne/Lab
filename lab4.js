@@ -76,56 +76,95 @@ delay(2000).then(() => console.log("2 seconds passed"));
 
 
 
-// // Bài 2: Viết hàm fetchMultipleData
-// async function fetchMultipleData(urls) {
-//   // Tạo mảng các Promise từ fetch
-//   const promises = urls.map(async (url) => {
-//     const res = await fetch(url);
-//     return res.json();
-//   });
+// Bài 2: fetchMultipleData
+async function fetchMultipleData(urls) {
+  // Tạo mảng các Promise từ fetch
+  const promises = urls.map(async (url) => {
+    const res = await fetch(url);
+    return res.json();
+  });
 
-//   // Chờ tất cả Promise hoàn thành
-//   const results = await Promise.all(promises);
-//   return results;
-// }
+  // Chờ tất cả Promise hoàn thành
+  const results = await Promise.all(promises);
+  return results;
+}
 
-// // Gọi hàm với mock API
-// (async () => {
-//   const users = await fetchMultipleData([
-//     "https://jsonplaceholder.typicode.com/users/1",
-//     "https://jsonplaceholder.typicode.com/users/2"
-//   ]);
-//   console.log(users);
-// })();
-
-
-// // Gọi hàm
-// (async () => {
-//   const users = await fetchMultipleData(["/api/user/1", "/api/user/2"]);
-//   console.log(users);
-// })();
+// Gọi hàm với mock API thật
+(async () => {
+  const users = await fetchMultipleData([
+    "https://jsonplaceholder.typicode.com/users/1",
+    "https://jsonplaceholder.typicode.com/users/2"
+  ]);
+  console.log("Users from API:", users);
+})();
 
 
 
-// Bài tập Async/Await
-// Bài 1: Viết lại callback hell thành async/await
-async function processOrder(orderId) {
+
+// Bài 1: processOrder (Async/Await)
+// Mock các hàm getOrder, getUser, getProducts trả về Promise
+function getOrder(orderId) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve({ id: orderId, userId: 1, productIds: [101, 102] });
+    }, 500);
+  });
+}
+
+function getUser(userId) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve({ id: userId, name: "John Doe" });
+    }, 500);
+  });
+}
+
+function getProducts(productIds) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(productIds.map(id => ({ id, name: `Product ${id}` })));
+    }, 500);
+  });
+}
+
+// Viết lại processOrder dùng async/await
+async function processOrderAsync(orderId) {
+  const order = await getOrder(orderId);
+  const user = await getUser(order.userId);
+  const products = await getProducts(order.productIds);
+
+  return { order, user, products };
+}
+
+// Sử dụng
+(async () => {
+  const result = await processOrderAsync(123);
+  console.log(result);
+})();
+
+
+
+// Bài 2: Xử lý lỗi với async/await
+// Hàm safeApiCall: gọi API async và trả về kết quả hoặc lỗi
+async function safeApiCall(apiFunction, ...args) {
   try {
-    const order = await getOrder(orderId);
-    const user = await getUser(order.userId);
-    const products = await getProducts(order.productIds);
-
-    return { order, user, products };
+    const result = await apiFunction(...args);
+    return { success: true, data: result };
   } catch (error) {
-    console.error('Error processing order:', error);
-    throw error;
+    return { success: false, error: error.message || error };
   }
 }
+
+// Ví dụ sử dụng với mock API
+async function fetchUser(id) {
+  if (id <= 0) throw new Error("Invalid user ID");
+  return { id, name: "John Doe" };
+}
+
 (async () => {
-  try {
-    const result = await processOrder(123);
-    console.log(result);
-  } catch (err) {
-    console.error('Failed to process order:', err.message);
-  }
+  const response1 = await safeApiCall(fetchUser, 1);
+  console.log(response1); // { success: true, data: { id: 1, name: 'John Doe' } }
+
+  const response2 = await safeApiCall(fetchUser, -5);
+  console.log(response2); // { success: false, error: 'Invalid user ID' }
 })();
