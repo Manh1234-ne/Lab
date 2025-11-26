@@ -78,7 +78,6 @@ export default function TourListPage() {
           ))}
         </div>
       </div>
-
       <Footer />
     </div>
   );

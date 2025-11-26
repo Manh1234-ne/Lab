@@ -6,7 +6,6 @@ import { useState } from "react";
 
 function HomePage() {
   // const [tours, setTours] = useState([]);
-  // const handleLoadData = () => {};
   const tours = [
     {
       id: 1,
